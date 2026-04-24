@@ -1,5 +1,5 @@
 import proxyStyle from '@niche-works/react-style-proxy';
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import extractStyleProps from './extractStyleProps';
 import type { ApplyStylePropsOptions, StyleProps, XStyleKeyMap } from './types';
 

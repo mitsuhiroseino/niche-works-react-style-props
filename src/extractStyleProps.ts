@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 import { DEFAULT_STYLE_KEY_MAP } from './constants';
 import type {
   ExtractStylePropsOptions,
