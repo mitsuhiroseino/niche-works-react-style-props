@@ -1,3 +1,4 @@
+import type { LooseRecord } from '@niche-works/types';
 import type {
   CSSProperties,
   ElementType,
@@ -5,8 +6,9 @@ import type {
   PropsWithoutRef,
 } from 'react';
 import { createElement, forwardRef } from 'react';
-import applyStyleProps from './applyStyleProps';
-import type { StyleProps, StylePropsOptions, XStyleKeyMap } from './types';
+import applyStyleProps from '../applyStyleProps';
+import type { StyleProps, XStyleKeyMap } from '../types';
+import type { StylePropsOptions } from './types';
 
 /**
  * スタイル関連のプロパティをプロパティに指定できるコンポーネントを作成するHOC
@@ -14,8 +16,8 @@ import type { StyleProps, StylePropsOptions, XStyleKeyMap } from './types';
  * @param options
  * @returns
  */
-export default function withStyledProps<
-  P extends Record<string, any>,
+export default function withStyleProps<
+  P extends LooseRecord,
   T = unknown,
   M extends Record<string, keyof CSSProperties> = XStyleKeyMap,
 >(Component: ElementType<P>, options: StylePropsOptions<M> = {}) {

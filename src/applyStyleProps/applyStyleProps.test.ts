@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
-import applyStyleProps from './applyStyleProps';
-import type { StyleProps } from './types';
+import applyStyleProps from '../applyStyleProps';
+import type { StyleProps } from '../types';
 
 type TestPropsBase = {
   value?: string;

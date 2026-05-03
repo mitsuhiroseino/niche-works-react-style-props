@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React, { type FC } from 'react';
-import withStyledProps from './withStyledProps';
+import withStyleProps from './withStyleProps';
 
 type ComponentProps = {
   children?: string;
@@ -19,13 +19,13 @@ const STYLE_KEY_MAP = {
   baseColor: 'backgroundColor',
 } as const;
 
-describe('withStyledProps', () => {
+describe('withStyleProps', () => {
   test('default', () => {
-    const CustomComponent = withStyledProps(Component);
+    const CustomComponent = withStyleProps(Component);
     render(<CustomComponent xColor="#ff0000">ABC</CustomComponent>);
   });
   test('custom', () => {
-    const CustomComponent = withStyledProps(Component, {
+    const CustomComponent = withStyleProps(Component, {
       styleKeyMap: STYLE_KEY_MAP,
     });
     render(<CustomComponent fontColor="#ff0000">ABC</CustomComponent>);

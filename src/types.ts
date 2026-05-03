@@ -1,4 +1,3 @@
-import type { StyleProxyOptions } from '@niche-works/react-style-proxy';
 import type { PrefixedUnion } from '@niche-works/types';
 import type { CSSProperties } from 'react';
 
@@ -28,15 +27,6 @@ export type StyledProps<P, M extends StyleKeyMap = XStyleKeyMap> = Omit<
   P,
   keyof M
 >;
-
-export type StylePropsOptions<M extends StyleKeyMap = XStyleKeyMap> =
-  ApplyStylePropsOptions<M>;
-
-/**
- * applyStylePropsのオプション
- */
-export type ApplyStylePropsOptions<M extends StyleKeyMap = XStyleKeyMap> =
-  StyleProxyOptions & ExtractStylePropsOptions<M>;
 
 /**
  * extractStylePropsのオプション

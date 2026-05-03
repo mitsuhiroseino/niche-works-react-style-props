@@ -1,7 +1,9 @@
 import proxyStyle from '@niche-works/react-style-proxy';
+import type { LooseRecord } from '@niche-works/types';
 import type { CSSProperties } from 'react';
-import extractStyleProps from './extractStyleProps';
-import type { ApplyStylePropsOptions, StyleProps, XStyleKeyMap } from './types';
+import extractStyleProps from '../_internal/extractStyleProps';
+import type { StyleProps, XStyleKeyMap } from '../types';
+import type { ApplyStylePropsOptions } from './types';
 
 /**
  * スタイル関連のプロパティをスタイルプロパティ(styleやcss)へ適用する
@@ -11,7 +13,7 @@ import type { ApplyStylePropsOptions, StyleProps, XStyleKeyMap } from './types';
  * @returns
  */
 export default function applyStyleProps<
-  P extends Record<string, any> & StyleProps<M>,
+  P extends LooseRecord & StyleProps<M>,
   M extends Record<string, keyof CSSProperties> = XStyleKeyMap,
 >(props: P, options: ApplyStylePropsOptions<M> = {}) {
   const { props: rest, style } = extractStyleProps(props, options);
