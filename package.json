@@ -1,6 +1,6 @@
 {
   "name": "@niche-works/react-style-props",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": true,
   "keywords": [
     "react",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@niche-works/react": "^0.1.0",
-    "@niche-works/react-style-proxy": "^0.1.0",
+    "@niche-works/react-style-proxy": "^0.2.0",
     "@niche-works/types": "^0.1.0",
     "tslib": "^2.8.1"
   },

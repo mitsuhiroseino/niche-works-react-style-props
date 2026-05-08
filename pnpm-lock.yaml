@@ -12,8 +12,8 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0(react@17.0.2)
       '@niche-works/react-style-proxy':
-        specifier: ^0.1.0
-        version: 0.1.0(react@17.0.2)
+        specifier: ^0.2.0
+        version: 0.2.0(react@17.0.2)
       '@niche-works/types':
         specifier: ^0.1.0
         version: 0.1.0
@@ -318,8 +318,8 @@ packages:
   '@niche-works/dev@0.5.1':
     resolution: {integrity: sha512-GKYLhrQgWfxbRNF3gT/N3HRZpEPhu5M0POKmv3Ccb6qcDdswZwwTgl+K6k2crrZb9RYi/xC/G00C3ha6XCEdZA==}
 
-  '@niche-works/react-style-proxy@0.1.0':
-    resolution: {integrity: sha512-PW3OcFYDHtjNDoKsof61xkRurbHf8n/QZih17cy8mWTvb5lSelPOjaBFMQsfRWs2Dh9b4s5RRU92DHuUoyoAcw==}
+  '@niche-works/react-style-proxy@0.2.0':
+    resolution: {integrity: sha512-6Blf5cPfIC1yZK6WsZF9EAOUXO+relbWYIvPQAtADaQy31IrRbVAB1Etgpj6uoQ3V5fA4gJJjvEWXvqb8OXVUA==}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -1716,7 +1716,7 @@ snapshots:
       sass: 1.99.0
       type-fest: 5.6.0
 
-  '@niche-works/react-style-proxy@0.1.0(react@17.0.2)':
+  '@niche-works/react-style-proxy@0.2.0(react@17.0.2)':
     dependencies:
       react: 17.0.2
 

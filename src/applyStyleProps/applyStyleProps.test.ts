@@ -28,7 +28,7 @@ describe('applyStyleProps', () => {
   };
 
   describe('default', () => {
-    test('スタイル関連のプロパティ無し', () => {
+    it('スタイル関連のプロパティ無し', () => {
       const styledProps = applyStyleProps({
         value: 'abc',
         onChange,
@@ -39,7 +39,7 @@ describe('applyStyleProps', () => {
       });
     });
 
-    test('スタイルプロパティがオブジェクト、配列以外', () => {
+    it('スタイルプロパティがオブジェクト、配列以外', () => {
       const styleFn = () => {
         return {
           borderColor: '#0000ff',
@@ -59,7 +59,7 @@ describe('applyStyleProps', () => {
   });
 
   describe('styleProp', () => {
-    test('undefined', () => {
+    it('undefined', () => {
       const styledProps = applyStyleProps(create());
       expect(styledProps).toEqual({
         value: 'abc',
@@ -72,7 +72,7 @@ describe('applyStyleProps', () => {
     });
 
     describe('style', () => {
-      test('none', () => {
+      it('none', () => {
         const styledProps = applyStyleProps(create(), { styleProp: 'style' });
         expect(styledProps).toEqual({
           value: 'abc',
@@ -84,7 +84,7 @@ describe('applyStyleProps', () => {
         });
       });
 
-      test('object', () => {
+      it('object', () => {
         const styledProps = applyStyleProps(
           create({
             xBorderColor: '#ffffff',
@@ -105,7 +105,7 @@ describe('applyStyleProps', () => {
         });
       });
 
-      test('object (設定済み)', () => {
+      it('object (設定済み)', () => {
         const styledProps = applyStyleProps(
           create({
             style: {
@@ -127,7 +127,7 @@ describe('applyStyleProps', () => {
     });
 
     describe('css', () => {
-      test('none', () => {
+      it('none', () => {
         const styledProps = applyStyleProps(create(), { styleProp: 'css' });
         expect(styledProps).toEqual({
           value: 'abc',
@@ -139,7 +139,7 @@ describe('applyStyleProps', () => {
         });
       });
 
-      test('object', () => {
+      it('object', () => {
         const styledProps = applyStyleProps(
           create({
             css: {
@@ -159,7 +159,7 @@ describe('applyStyleProps', () => {
         });
       });
 
-      test('array', () => {
+      it('array', () => {
         const styledProps = applyStyleProps(
           create({
             css: [
@@ -185,7 +185,7 @@ describe('applyStyleProps', () => {
     });
 
     describe('sx', () => {
-      test('none', () => {
+      it('none', () => {
         const styledProps = applyStyleProps(create(), { styleProp: 'sx' });
         expect(styledProps).toEqual({
           value: 'abc',
@@ -197,7 +197,7 @@ describe('applyStyleProps', () => {
         });
       });
 
-      test('object', () => {
+      it('object', () => {
         const styledProps = applyStyleProps(
           create({
             sx: {
@@ -217,7 +217,7 @@ describe('applyStyleProps', () => {
         });
       });
 
-      test('array', () => {
+      it('array', () => {
         const styledProps = applyStyleProps(
           create({
             sx: [
@@ -243,7 +243,7 @@ describe('applyStyleProps', () => {
     });
 
     describe('any', () => {
-      test('none', () => {
+      it('none', () => {
         const styledProps = applyStyleProps(create(), { styleProp: 'any' });
         expect(styledProps).toEqual({
           value: 'abc',
@@ -255,7 +255,7 @@ describe('applyStyleProps', () => {
         });
       });
 
-      test('object', () => {
+      it('object', () => {
         const styledProps = applyStyleProps(
           create({
             any: {
@@ -278,7 +278,7 @@ describe('applyStyleProps', () => {
   });
 
   describe('styleApplyMode', () => {
-    test('未設定', () => {
+    it('未設定', () => {
       const styledProps = applyStyleProps(
         create({
           any: {
@@ -298,7 +298,7 @@ describe('applyStyleProps', () => {
       });
     });
 
-    test('merge', () => {
+    it('merge', () => {
       const styledProps = applyStyleProps(
         create({
           any: {
@@ -318,7 +318,7 @@ describe('applyStyleProps', () => {
       });
     });
 
-    test('append', () => {
+    it('append', () => {
       const styledProps = applyStyleProps(
         create({
           any: {
@@ -344,7 +344,7 @@ describe('applyStyleProps', () => {
   });
 
   describe('styleKeyMap', () => {
-    test('任意のマッピング', () => {
+    it('任意のマッピング', () => {
       const styledProps = applyStyleProps(
         {
           value: 'abc',

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import React, { type FC } from 'react';
+import type { FC } from 'react';
 import withStyleProps from './withStyleProps';
 
 type ComponentProps = {
@@ -20,11 +20,11 @@ const STYLE_KEY_MAP = {
 } as const;
 
 describe('withStyleProps', () => {
-  test('default', () => {
+  it('default', () => {
     const CustomComponent = withStyleProps(Component);
     render(<CustomComponent xColor="#ff0000">ABC</CustomComponent>);
   });
-  test('custom', () => {
+  it('custom', () => {
     const CustomComponent = withStyleProps(Component, {
       styleKeyMap: STYLE_KEY_MAP,
     });
