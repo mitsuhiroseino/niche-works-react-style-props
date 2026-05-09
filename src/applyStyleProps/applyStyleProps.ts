@@ -1,4 +1,4 @@
-import proxyStyle from '@niche-works/react-style-proxy';
+import { styleProxy } from '@niche-works/react-style-proxy';
 import type { LooseRecord } from '@niche-works/types';
 import type { CSSProperties } from 'react';
 import extractStyleProps from '../_internal/extractStyleProps';
@@ -20,7 +20,7 @@ export default function applyStyleProps<
 
   if (Object.keys(style).length) {
     // style関連のプロパティがある場合のみ処理
-    return proxyStyle(rest, style, options);
+    return styleProxy(rest, style, options);
   } else {
     return rest;
   }

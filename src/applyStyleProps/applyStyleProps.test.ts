@@ -305,7 +305,7 @@ describe('applyStyleProps', () => {
             borderColor: '#0000ff',
           },
         }),
-        { styleProp: 'any', styleApplyMode: 'merge' },
+        { styleProp: 'any', styleMergeMode: 'merge' },
       );
       expect(styledProps).toEqual({
         value: 'abc',
@@ -325,7 +325,7 @@ describe('applyStyleProps', () => {
             borderColor: '#0000ff',
           },
         }),
-        { styleProp: 'any', styleApplyMode: 'append' },
+        { styleProp: 'any', styleMergeMode: 'append' },
       );
       expect(styledProps).toEqual({
         value: 'abc',
