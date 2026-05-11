@@ -1,4 +1,4 @@
-import type { LooseRecord } from '@niche-works/types';
+import type { LooseDictionary } from '@niche-works/types';
 import type {
   CSSProperties,
   ElementType,
@@ -17,7 +17,7 @@ import type { StylePropsOptions } from './types';
  * @returns
  */
 export default function withStyleProps<
-  P extends LooseRecord,
+  P extends LooseDictionary,
   T = unknown,
   M extends Record<string, keyof CSSProperties> = XStyleKeyMap,
 >(Component: ElementType<P>, options: StylePropsOptions<M> = {}) {

@@ -1,5 +1,5 @@
 import { styleProxy } from '@niche-works/react-style-proxy';
-import type { LooseRecord } from '@niche-works/types';
+import type { LooseDictionary } from '@niche-works/types';
 import type { CSSProperties } from 'react';
 import extractStyleProps from '../_internal/extractStyleProps';
 import type { StyleProps, XStyleKeyMap } from '../types';
@@ -13,7 +13,7 @@ import type { ApplyStylePropsOptions } from './types';
  * @returns
  */
 export default function applyStyleProps<
-  P extends LooseRecord & StyleProps<M>,
+  P extends LooseDictionary & StyleProps<M>,
   M extends Record<string, keyof CSSProperties> = XStyleKeyMap,
 >(props: P, options: ApplyStylePropsOptions<M> = {}) {
   const { props: rest, style } = extractStyleProps(props, options);

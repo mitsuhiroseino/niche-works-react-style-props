@@ -1,4 +1,4 @@
-import type { LooseRecord } from '@niche-works/types';
+import type { LooseDictionary } from '@niche-works/types';
 import type { CSSProperties } from 'react';
 import { DEFAULT_STYLE_KEY_MAP } from '../constants';
 import type {
@@ -15,7 +15,7 @@ import type {
  * @returns
  */
 export default function extractStyleProps<
-  P extends LooseRecord & StyleProps<M>,
+  P extends LooseDictionary & StyleProps<M>,
   M extends Record<string, keyof CSSProperties> = XStyleKeyMap,
 >(props: P, options: ExtractStylePropsOptions<M> = {}) {
   const { styleKeyMap = DEFAULT_STYLE_KEY_MAP, excludeStyleKeys } = options;
