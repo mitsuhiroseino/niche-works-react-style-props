@@ -1,7 +1,7 @@
 import { styleProxy } from '@niche-works/react-style-proxy';
 import type { LooseDictionary } from '@niche-works/types';
 import type { CSSProperties } from 'react';
-import extractStyleProps from '../_internal/extractStyleProps';
+import extractStyleProps from '../extractStyleProps';
 import type { StyleProps, XStyleKeyMap } from '../types';
 import type { ApplyStylePropsOptions } from './types';
 
