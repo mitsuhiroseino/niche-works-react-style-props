@@ -1,9 +1,8 @@
-import type { LooseDictionary } from '@niche-works/types';
 import type {
+  ComponentProps,
+  ComponentRef,
   CSSProperties,
   ElementType,
-  ForwardedRef,
-  PropsWithoutRef,
 } from 'react';
 import { createElement, forwardRef } from 'react';
 import applyStyleProps from '../applyStyleProps';
@@ -17,13 +16,12 @@ import type { StylePropsOptions } from './types';
  * @returns
  */
 export default function withStyleProps<
-  P extends LooseDictionary,
-  T = unknown,
+  C extends ElementType,
   M extends Record<string, keyof CSSProperties> = XStyleKeyMap,
->(Component: ElementType<P>, options: StylePropsOptions<M> = {}) {
-  return forwardRef(
-    (props: PropsWithoutRef<P & StyleProps<M>>, ref: ForwardedRef<T>) => {
-      const styleizedProps = applyStyleProps(props, options) as unknown as P;
+>(Component: C, options: StylePropsOptions<M> = {}) {
+  return forwardRef<ComponentRef<C>, ComponentProps<C> & StyleProps<M>>(
+    (props, ref) => {
+      const styleizedProps = applyStyleProps(props, options);
       return createElement(Component, { ref, ...styleizedProps });
     },
   );
