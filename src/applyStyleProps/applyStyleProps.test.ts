@@ -53,7 +53,13 @@ describe('applyStyleProps', () => {
       expect(styledProps).toEqual({
         value: 'abc',
         onChange,
-        style: styleFn,
+        style: [
+          {
+            color: '#ff0000',
+            backgroundColor: '#00ff00',
+          },
+          styleFn,
+        ],
       });
     });
   });
@@ -340,6 +346,103 @@ describe('applyStyleProps', () => {
           },
         ],
       });
+    });
+  });
+
+  describe('styleAsDefault', () => {
+    it('スタイルプロパティに指定した値が優先される(object)', () => {
+      const styledProps = applyStyleProps(
+        create({
+          style: {
+            color: '#0000ff',
+          },
+        }),
+      );
+      expect(styledProps).toEqual({
+        value: 'abc',
+        onChange,
+        style: {
+          color: '#0000ff',
+          backgroundColor: '#00ff00',
+        },
+      });
+    });
+
+    it('スタイルプロパティに指定した値が優先される(array)', () => {
+      const styledProps = applyStyleProps(
+        create({
+          style: [{ color: '#0000ff' }],
+        }),
+      );
+      expect(styledProps).toEqual({
+        value: 'abc',
+        onChange,
+        style: [
+          {
+            color: '#ff0000',
+            backgroundColor: '#00ff00',
+          },
+          { color: '#0000ff' },
+        ],
+      });
+    });
+
+    it('スタイルプロパティの値がundefinedの場合はスタイル関連のプロパティで補完する', () => {
+      const styledProps = applyStyleProps(
+        create({
+          style: {
+            color: undefined,
+          },
+        }),
+      );
+      expect(styledProps).toEqual({
+        value: 'abc',
+        onChange,
+        style: {
+          color: '#ff0000',
+          backgroundColor: '#00ff00',
+        },
+      });
+    });
+  });
+
+  describe('excludeStyleKeys', () => {
+    it('除外したプロパティは適用しない', () => {
+      const styledProps = applyStyleProps(create(), {
+        excludeStyleKeys: ['xBackgroundColor'],
+      });
+      expect(styledProps).toEqual({
+        value: 'abc',
+        onChange,
+        xBackgroundColor: '#00ff00',
+        style: {
+          color: '#ff0000',
+        },
+      });
+    });
+
+    it('全て除外した場合はスタイルプロパティを追加しない', () => {
+      const styledProps = applyStyleProps(create(), {
+        excludeStyleKeys: ['xColor', 'xBackgroundColor'],
+      });
+      expect(styledProps).toEqual({
+        value: 'abc',
+        onChange,
+        xColor: '#ff0000',
+        xBackgroundColor: '#00ff00',
+      });
+    });
+  });
+
+  it('引数のpropsを変更しない', () => {
+    const props = create({ style: { borderColor: '#0000ff' } });
+    applyStyleProps(props);
+    expect(props).toEqual({
+      value: 'abc',
+      onChange,
+      xColor: '#ff0000',
+      xBackgroundColor: '#00ff00',
+      style: { borderColor: '#0000ff' },
     });
   });
 

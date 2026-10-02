@@ -8,5 +8,8 @@ import type {
 /**
  * applyStylePropsのオプション
  */
-export type ApplyStylePropsOptions<M extends StyleKeyMap = XStyleKeyMap> =
-  StyleProxyOptions & ExtractStylePropsOptions<M>;
+export type ApplyStylePropsOptions<M extends StyleKeyMap = XStyleKeyMap> = Omit<
+  StyleProxyOptions,
+  'styleAsDefault'
+> &
+  ExtractStylePropsOptions<M>;

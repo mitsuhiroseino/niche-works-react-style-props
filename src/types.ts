@@ -41,7 +41,7 @@ export type ExtractStylePropsOptions<M extends StyleKeyMap = XStyleKeyMap> = {
   /**
    * マッピングから除外するプロパティのキー
    */
-  excludeStyleKeys?: keyof M[];
+  excludeStyleKeys?: NoInfer<keyof M>[];
 };
 
 /**

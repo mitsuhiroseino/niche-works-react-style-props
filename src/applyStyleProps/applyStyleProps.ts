@@ -20,7 +20,7 @@ export default function applyStyleProps<
 
   if (Object.keys(style).length) {
     // style関連のプロパティがある場合のみ処理
-    return styleProxy(rest, style, options);
+    return styleProxy(rest, style, { styleAsDefault: true, ...options });
   } else {
     return rest;
   }
